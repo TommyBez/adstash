@@ -1,15 +1,7 @@
 'use client'
 
 import type { User } from '@supabase/supabase-js'
-import {
-  Images,
-  Key,
-  LogOut,
-  Settings,
-  Sparkles,
-  Tags,
-  Upload,
-} from 'lucide-react'
+import { Images, Key, LogOut, Sparkles, Tags, Upload } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -18,7 +10,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
@@ -189,13 +180,6 @@ export function AppSidebar() {
                 side="bottom"
                 sideOffset={4}
               >
-                <DropdownMenuItem asChild>
-                  <Link href="/settings/tokens">
-                    <Settings className="mr-2 h-4 w-4" />
-                    Settings
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={handleSignOut}>
                   <LogOut className="mr-2 h-4 w-4" />
                   Sign out
