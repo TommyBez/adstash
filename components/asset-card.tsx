@@ -122,7 +122,9 @@ export function AssetCard({
                     href={asset.captureUrl}
                     rel="noopener noreferrer"
                     target="_blank"
-                  />
+                  >
+                    <span className="sr-only">View original source</span>
+                  </a>
                 }
                 size="icon"
                 variant="secondary"
@@ -335,7 +337,9 @@ export function AssetListItem({
                 href={asset.captureUrl}
                 rel="noopener noreferrer"
                 target="_blank"
-              />
+              >
+                <span className="sr-only">View original source</span>
+              </a>
             }
             size="icon"
             variant="ghost"

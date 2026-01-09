@@ -278,7 +278,11 @@ function AssetHeader({
         {asset.assetUrl && (
           <Button
             render={
-              <a download={asset.originalFilename} href={asset.assetUrl} />
+              <a download={asset.originalFilename} href={asset.assetUrl}>
+                <span className="sr-only">
+                  Download {asset.originalFilename}
+                </span>
+              </a>
             }
             variant="outline"
           >
@@ -409,7 +413,10 @@ function AssetSidebar({
           <CardTitle className="text-base">Source Platform</CardTitle>
         </CardHeader>
         <CardContent>
-          <Select onValueChange={setSourcePlatform} value={sourcePlatform}>
+          <Select
+            onValueChange={(value) => setSourcePlatform(value ?? '')}
+            value={sourcePlatform}
+          >
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
