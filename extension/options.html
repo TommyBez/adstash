@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdStash Settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="icons/icon48.png" alt="AdStash" width="48" height="48">
+        <div>
+          <h1>AdStash Settings</h1>
+          <p>Configure your browser extension</p>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="card">
+          <h2>Connection</h2>
+          <p class="description">
+            Enter your AdStash server URL and access token to enable asset
+            capture.
+          </p>
+
+          <div class="form-group">
+            <label for="api-url">API URL</label>
+            <input
+              type="url"
+              id="api-url"
+              placeholder="https://your-adstash-instance.com"
+            >
+            <span class="help-text"
+              >The URL of your AdStash web application</span
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="token">Access Token</label>
+            <input type="password" id="token" placeholder="adstash_xxxxxxxx...">
+            <span class="help-text"
+              >Generate an access token from Settings → Access Tokens in your
+              AdStash account</span
+            >
+          </div>
+
+          <div class="actions">
+            <button id="test-btn" class="btn btn-secondary">
+              Test Connection
+            </button>
+            <button id="save-btn" class="btn btn-primary">Save Settings</button>
+          </div>
+
+          <div id="status" class="status hidden"></div>
+        </div>
+
+        <div class="card">
+          <h2>How to Get an Access Token</h2>
+          <ol class="steps">
+            <li>Sign in to your AdStash account</li>
+            <li>Go to <strong>Settings → Access Tokens</strong></li>
+            <li>
+              Click <strong>New Token</strong> and give it a name (e.g., "Chrome
+              Extension")
+            </li>
+            <li>Copy the generated token and paste it above</li>
+          </ol>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="dist/options.js"></script>
+  </body>
+</html>

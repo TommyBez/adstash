@@ -6,9 +6,34 @@
       "quoteStyle": "single",
       "trailingCommas": "all",
       "semicolons": "asNeeded"
-    }
+    },
+    "globals": ["chrome"]
   },
   "files": {
     "includes": ["**/*", "!components/ui/*"]
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["extension/**/*"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredVariables": {
+              "level": "off"
+            }
+          },
+          "style": {
+            "noNonNullAssertion": {
+              "level": "warn"
+            }
+          },
+          "performance": {
+            "noBarrelFile": {
+              "level": "off"
+            }
+          }
+        }
+      }
+    }
+  ]
 }

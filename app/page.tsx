@@ -1,5 +1,15 @@
-import { ComponentExample } from '@/components/component-example'
+import { redirect } from 'next/navigation'
+import { createClient } from '@/lib/supabase/server'
 
-export default function Page() {
-  return <ComponentExample />
+export default async function HomePage() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (user) {
+    redirect('/assets')
+  } else {
+    redirect('/sign-in')
+  }
 }
