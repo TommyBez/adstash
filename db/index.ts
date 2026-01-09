@@ -6,7 +6,7 @@ import { sources } from './schema/sources'
 import { tags } from './schema/tags'
 
 // Connection for queries (with connection pooling)
-const connectionString = process.env.DATABASE_URL
+const connectionString = process.env.POSTGRES_URL
 if (!connectionString) {
   throw new Error('DATABASE_URL environment variable is not set')
 }
