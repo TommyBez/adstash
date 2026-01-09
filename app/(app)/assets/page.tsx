@@ -160,7 +160,7 @@ function AssetsContent() {
   }
 
   return (
-    <div className="container space-y-6 py-6">
+    <div className="container space-y-6 px-4 py-6">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -169,7 +169,7 @@ function AssetsContent() {
             Manage your creative ads library
           </p>
         </div>
-        <Button render={<Link href="/upload" />}>
+        <Button nativeButton={false} render={<Link href="/upload" />}>
           <Plus className="mr-2 h-4 w-4" />
           Upload
         </Button>
@@ -204,7 +204,7 @@ function AssetsContent() {
           </EmptyHeader>
           {!searchParams.toString() && (
             <EmptyContent>
-              <Button render={<Link href="/upload" />}>
+              <Button nativeButton={false} render={<Link href="/upload" />}>
                 <Plus className="mr-2 h-4 w-4" />
                 Upload Asset
               </Button>
