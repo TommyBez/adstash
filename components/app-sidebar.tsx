@@ -157,29 +157,32 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuButton
-                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
-                  size="lg"
-                >
-                  <Avatar className="h-8 w-8 rounded-lg">
-                    <AvatarImage src={user?.user_metadata?.avatar_url} />
-                    <AvatarFallback className="rounded-lg">
-                      {userInitials}
-                    </AvatarFallback>
-                  </Avatar>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-semibold">
-                      {user?.user_metadata?.full_name ||
-                        user?.email?.split('@')[0] ||
-                        'User'}
-                    </span>
-                    <span className="truncate text-muted-foreground text-xs">
-                      {user?.email || ''}
-                    </span>
-                  </div>
-                </SidebarMenuButton>
-              </DropdownMenuTrigger>
+              <DropdownMenuTrigger
+                render={(props) => (
+                  <SidebarMenuButton
+                    {...props}
+                    className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                    size="lg"
+                  >
+                    <Avatar className="h-8 w-8 rounded-lg">
+                      <AvatarImage src={user?.user_metadata?.avatar_url} />
+                      <AvatarFallback className="rounded-lg">
+                        {userInitials}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-semibold">
+                        {user?.user_metadata?.full_name ||
+                          user?.email?.split('@')[0] ||
+                          'User'}
+                      </span>
+                      <span className="truncate text-muted-foreground text-xs">
+                        {user?.email || ''}
+                      </span>
+                    </div>
+                  </SidebarMenuButton>
+                )}
+              />
               <DropdownMenuContent
                 align="end"
                 className="w-[--radix-dropdown-menu-trigger-width] min-w-56"
