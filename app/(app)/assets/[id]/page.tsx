@@ -250,10 +250,8 @@ function AssetHeader({
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-4">
-        <Button asChild size="icon" variant="ghost">
-          <Link href="/assets">
-            <ArrowLeft className="h-4 w-4" />
-          </Link>
+        <Button render={<Link href="/assets" />} size="icon" variant="ghost">
+          <ArrowLeft className="h-4 w-4" />
         </Button>
         <div>
           <h1 className="max-w-md truncate font-bold text-xl">
@@ -278,21 +276,26 @@ function AssetHeader({
         )}
 
         {asset.assetUrl && (
-          <Button asChild variant="outline">
-            <a download={asset.originalFilename} href={asset.assetUrl}>
-              <Download className="mr-2 h-4 w-4" />
-              Download
-            </a>
+          <Button
+            render={
+              <a download={asset.originalFilename} href={asset.assetUrl} />
+            }
+            variant="outline"
+          >
+            <Download className="mr-2 h-4 w-4" />
+            Download
           </Button>
         )}
 
         <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button className="text-destructive" variant="outline">
-              <Trash2 className="mr-2 h-4 w-4" />
-              Delete
-            </Button>
-          </AlertDialogTrigger>
+          <AlertDialogTrigger
+            render={(props) => (
+              <Button {...props} className="text-destructive" variant="outline">
+                <Trash2 className="mr-2 h-4 w-4" />
+                Delete
+              </Button>
+            )}
+          />
           <AlertDialogContent>
             <AlertDialogHeader>
               <AlertDialogTitle>Delete Asset</AlertDialogTitle>

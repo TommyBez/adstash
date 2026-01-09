@@ -116,29 +116,38 @@ export function AssetCard({
           <div className="absolute right-2 bottom-2 flex gap-1">
             {asset.captureUrl && (
               <Button
-                asChild
                 className="h-8 w-8"
+                render={
+                  <a
+                    href={asset.captureUrl}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  />
+                }
                 size="icon"
                 variant="secondary"
               >
-                <a
-                  href={asset.captureUrl}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                </a>
+                <ExternalLink className="h-4 w-4" />
               </Button>
             )}
             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="h-8 w-8" size="icon" variant="secondary">
-                  <MoreHorizontal className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
+              <DropdownMenuTrigger
+                render={(props) => (
+                  <Button
+                    {...props}
+                    className="h-8 w-8"
+                    size="icon"
+                    variant="secondary"
+                  >
+                    <MoreHorizontal className="h-4 w-4" />
+                  </Button>
+                )}
+              />
               <DropdownMenuContent align="end">
-                <DropdownMenuItem asChild>
-                  <Link href={`/assets/${asset.id}`}>View Details</Link>
+                <DropdownMenuItem
+                  render={<Link href={`/assets/${asset.id}`} />}
+                >
+                  View Details
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem
@@ -319,25 +328,37 @@ export function AssetListItem({
       {/* Actions */}
       <div className="flex items-center gap-1">
         {asset.captureUrl && (
-          <Button asChild className="h-8 w-8" size="icon" variant="ghost">
-            <a
-              href={asset.captureUrl}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <ExternalLink className="h-4 w-4" />
-            </a>
+          <Button
+            className="h-8 w-8"
+            render={
+              <a
+                href={asset.captureUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+              />
+            }
+            size="icon"
+            variant="ghost"
+          >
+            <ExternalLink className="h-4 w-4" />
           </Button>
         )}
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button className="h-8 w-8" size="icon" variant="ghost">
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={(props) => (
+              <Button
+                {...props}
+                className="h-8 w-8"
+                size="icon"
+                variant="ghost"
+              >
+                <MoreHorizontal className="h-4 w-4" />
+              </Button>
+            )}
+          />
           <DropdownMenuContent align="end">
-            <DropdownMenuItem asChild>
-              <Link href={`/assets/${asset.id}`}>View Details</Link>
+            <DropdownMenuItem render={<Link href={`/assets/${asset.id}`} />}>
+              View Details
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="text-destructive" onClick={onDelete}>

@@ -154,12 +154,14 @@ export default function TokensPage() {
         </div>
 
         <Dialog onOpenChange={setCreateDialogOpen} open={createDialogOpen}>
-          <DialogTrigger asChild>
-            <Button onClick={() => setNewToken(null)}>
-              <Plus className="mr-2 h-4 w-4" />
-              New Token
-            </Button>
-          </DialogTrigger>
+          <DialogTrigger
+            render={(props) => (
+              <Button {...props} onClick={() => setNewToken(null)}>
+                <Plus className="mr-2 h-4 w-4" />
+                New Token
+              </Button>
+            )}
+          />
           <DialogContent>
             {newToken ? (
               <>
@@ -323,15 +325,18 @@ export default function TokensPage() {
                   </div>
 
                   <AlertDialog>
-                    <AlertDialogTrigger asChild>
-                      <Button
-                        className="text-destructive"
-                        size="icon"
-                        variant="ghost"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </Button>
-                    </AlertDialogTrigger>
+                    <AlertDialogTrigger
+                      render={(props) => (
+                        <Button
+                          {...props}
+                          className="text-destructive"
+                          size="icon"
+                          variant="ghost"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      )}
+                    />
                     <AlertDialogContent>
                       <AlertDialogHeader>
                         <AlertDialogTitle>Revoke Token</AlertDialogTitle>

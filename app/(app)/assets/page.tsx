@@ -169,11 +169,9 @@ function AssetsContent() {
             Manage your creative ads library
           </p>
         </div>
-        <Button asChild>
-          <Link href="/upload">
-            <Plus className="mr-2 h-4 w-4" />
-            Upload
-          </Link>
+        <Button render={<Link href="/upload" />}>
+          <Plus className="mr-2 h-4 w-4" />
+          Upload
         </Button>
       </div>
 
@@ -206,11 +204,9 @@ function AssetsContent() {
           </EmptyHeader>
           {!searchParams.toString() && (
             <EmptyContent>
-              <Button asChild>
-                <Link href="/upload">
-                  <Plus className="mr-2 h-4 w-4" />
-                  Upload Asset
-                </Link>
+              <Button render={<Link href="/upload" />}>
+                <Plus className="mr-2 h-4 w-4" />
+                Upload Asset
               </Button>
             </EmptyContent>
           )}

@@ -214,14 +214,17 @@ export function AssetFilters({
 
         {/* Date range filter */}
         <Popover>
-          <PopoverTrigger asChild>
-            <Button
-              className="w-[200px] justify-start font-normal"
-              variant="outline"
-            >
-              {formatDateRange(dateRange)}
-            </Button>
-          </PopoverTrigger>
+          <PopoverTrigger
+            render={(props) => (
+              <Button
+                {...props}
+                className="w-[200px] justify-start font-normal"
+                variant="outline"
+              >
+                {formatDateRange(dateRange)}
+              </Button>
+            )}
+          />
           <PopoverContent align="start" className="w-auto p-0">
             <Calendar
               mode="range"
@@ -247,17 +250,19 @@ export function AssetFilters({
         {/* Tags filter */}
         {tags.length > 0 && (
           <Popover>
-            <PopoverTrigger asChild>
-              <Button className="gap-2" variant="outline">
-                <Filter className="h-4 w-4" />
-                Tags
-                {selectedTags.length > 0 && (
-                  <Badge className="ml-1" variant="secondary">
-                    {selectedTags.length}
-                  </Badge>
-                )}
-              </Button>
-            </PopoverTrigger>
+            <PopoverTrigger
+              render={(props) => (
+                <Button {...props} className="gap-2" variant="outline">
+                  <Filter className="h-4 w-4" />
+                  Tags
+                  {selectedTags.length > 0 && (
+                    <Badge className="ml-1" variant="secondary">
+                      {selectedTags.length}
+                    </Badge>
+                  )}
+                </Button>
+              )}
+            />
             <PopoverContent align="start" className="w-[250px]">
               <div className="space-y-2">
                 <p className="font-medium text-sm">Filter by tags</p>

@@ -195,12 +195,14 @@ export default function TagsPage() {
           </p>
         </div>
         <Dialog onOpenChange={setDialogOpen} open={dialogOpen}>
-          <DialogTrigger asChild>
-            <Button onClick={openCreateDialog}>
-              <Plus className="mr-2 h-4 w-4" />
-              New Tag
-            </Button>
-          </DialogTrigger>
+          <DialogTrigger
+            render={(props) => (
+              <Button {...props} onClick={openCreateDialog}>
+                <Plus className="mr-2 h-4 w-4" />
+                New Tag
+              </Button>
+            )}
+          />
           <DialogContent>
             <DialogHeader>
               <DialogTitle>
@@ -304,15 +306,18 @@ export default function TagsPage() {
                     <span className="font-medium">{tag.name}</span>
                   </div>
                   <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        className="h-8 w-8 opacity-0 transition-opacity group-hover:opacity-100"
-                        size="icon"
-                        variant="ghost"
-                      >
-                        <MoreHorizontal className="h-4 w-4" />
-                      </Button>
-                    </DropdownMenuTrigger>
+                    <DropdownMenuTrigger
+                      render={(props) => (
+                        <Button
+                          {...props}
+                          className="h-8 w-8 opacity-0 transition-opacity group-hover:opacity-100"
+                          size="icon"
+                          variant="ghost"
+                        >
+                          <MoreHorizontal className="h-4 w-4" />
+                        </Button>
+                      )}
+                    />
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem onClick={() => openEditDialog(tag)}>
                         <Pencil className="mr-2 h-4 w-4" />

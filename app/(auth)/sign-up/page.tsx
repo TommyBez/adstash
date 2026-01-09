@@ -71,8 +71,12 @@ export default function SignUpPage() {
               We&apos;ve sent a confirmation link to <strong>{email}</strong>.
               Click the link to activate your account.
             </p>
-            <Button asChild className="mt-4" variant="outline">
-              <Link href="/sign-in">Back to sign in</Link>
+            <Button
+              className="mt-4"
+              render={<Link href="/sign-in" />}
+              variant="outline"
+            >
+              Back to sign in
             </Button>
           </CardContent>
         </Card>
