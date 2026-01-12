@@ -1,6 +1,7 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 
+// Config for other scripts - ES modules
 export default defineConfig({
   build: {
     outDir: 'dist',
@@ -8,7 +9,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         background: resolve(__dirname, 'src/background.ts'),
-        content: resolve(__dirname, 'src/content.ts'),
         popup: resolve(__dirname, 'src/popup.ts'),
         options: resolve(__dirname, 'src/options.ts'),
       },
@@ -16,6 +16,7 @@ export default defineConfig({
         entryFileNames: '[name].js',
         chunkFileNames: '[name].js',
         assetFileNames: '[name].[ext]',
+        format: 'es',
       },
     },
     target: 'esnext',
