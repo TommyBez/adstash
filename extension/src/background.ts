@@ -43,7 +43,6 @@ async function handleCaptureMedia(
 
   // Try to download the media blob
   let blob: Blob | null = null
-  const _mediaUrl = candidate.url
 
   try {
     const response = await fetch(candidate.url, {
