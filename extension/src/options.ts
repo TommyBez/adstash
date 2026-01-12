@@ -77,6 +77,10 @@ async function testConnection() {
 }
 
 function showStatus(message: string, type: 'success' | 'error') {
+  if (!statusEl) {
+    return
+  }
+
   statusEl.textContent = message
   statusEl.className = `status ${type}`
   statusEl.classList.remove('hidden')
