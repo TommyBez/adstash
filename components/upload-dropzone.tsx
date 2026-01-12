@@ -365,11 +365,11 @@ function FileUploadItem({
         {fileUpload.status === 'pending' && (
           <Select
             disabled={disabled}
-            onValueChange={onSourceChange}
+            onValueChange={(value) => onSourceChange(value ?? '')}
             value={fileUpload.sourcePlatform}
           >
             <SelectTrigger className="h-8 w-48">
-              <SelectValue placeholder="Select source" />
+              <SelectValue />
             </SelectTrigger>
             <SelectContent>
               {DEFAULT_SOURCES.map((source) => (

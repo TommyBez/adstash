@@ -176,9 +176,19 @@ export function AssetFilters({
       {/* Filter Row */}
       <div className="flex flex-wrap items-center gap-2">
         {/* Source filter */}
-        <Select onValueChange={setSource} value={source}>
+        <Select
+          onValueChange={(value) => setSource(value ?? '')}
+          value={source}
+        >
           <SelectTrigger className="w-[140px]">
-            <SelectValue placeholder="All sources" />
+            <SelectValue>
+              {source ? (
+                DEFAULT_SOURCES.find((s) => s.key === source)?.label ||
+                'All sources'
+              ) : (
+                <span className="text-muted-foreground">All sources</span>
+              )}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All sources</SelectItem>
@@ -191,9 +201,27 @@ export function AssetFilters({
         </Select>
 
         {/* Type filter */}
-        <Select onValueChange={setType} value={type}>
+        <Select onValueChange={(value) => setType(value ?? '')} value={type}>
           <SelectTrigger className="w-[130px]">
-            <SelectValue placeholder="All types" />
+            <SelectValue>
+              {type ? (
+                type === 'image' ? (
+                  <span className="flex items-center gap-2">
+                    <Image className="h-4 w-4" />
+                    Images
+                  </span>
+                ) : type === 'video' ? (
+                  <span className="flex items-center gap-2">
+                    <Film className="h-4 w-4" />
+                    Videos
+                  </span>
+                ) : (
+                  'All types'
+                )
+              ) : (
+                <span className="text-muted-foreground">All types</span>
+              )}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All types</SelectItem>
