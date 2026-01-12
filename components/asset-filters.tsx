@@ -127,6 +127,29 @@ export function AssetFilters({
     return format(range.from, 'MMM d, yyyy')
   }
 
+  const renderTypeLabel = () => {
+    if (!type) {
+      return <span className="text-muted-foreground">All types</span>
+    }
+    if (type === 'image') {
+      return (
+        <span className="flex items-center gap-2">
+          <Image className="h-4 w-4" />
+          Images
+        </span>
+      )
+    }
+    if (type === 'video') {
+      return (
+        <span className="flex items-center gap-2">
+          <Film className="h-4 w-4" />
+          Videos
+        </span>
+      )
+    }
+    return 'All types'
+  }
+
   return (
     <div className="space-y-4">
       {/* Search + View Toggle */}
@@ -203,25 +226,7 @@ export function AssetFilters({
         {/* Type filter */}
         <Select onValueChange={(value) => setType(value ?? '')} value={type}>
           <SelectTrigger className="w-[130px]">
-            <SelectValue>
-              {type ? (
-                type === 'image' ? (
-                  <span className="flex items-center gap-2">
-                    <Image className="h-4 w-4" />
-                    Images
-                  </span>
-                ) : type === 'video' ? (
-                  <span className="flex items-center gap-2">
-                    <Film className="h-4 w-4" />
-                    Videos
-                  </span>
-                ) : (
-                  'All types'
-                )
-              ) : (
-                <span className="text-muted-foreground">All types</span>
-              )}
-            </SelectValue>
+            <SelectValue>{renderTypeLabel()}</SelectValue>
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All types</SelectItem>
