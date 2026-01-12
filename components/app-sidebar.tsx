@@ -109,7 +109,6 @@ export function AppSidebar() {
                       pathname.startsWith(`${item.url}/`)
                     }
                     render={<Link href={item.url} />}
-                    tooltip={item.title}
                   >
                     <item.icon />
                     <span>{item.title}</span>
@@ -132,7 +131,6 @@ export function AppSidebar() {
                       pathname.startsWith(`${item.url}/`)
                     }
                     render={<Link href={item.url} />}
-                    tooltip={item.title}
                   >
                     <item.icon />
                     <span>{item.title}</span>
